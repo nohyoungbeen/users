@@ -15,23 +15,23 @@ const putPart = document.querySelector('#putPart')
 const putPhone = document.querySelector('#putPhone')
 //2.버튼
 const addBtn = document.querySelector('#addBtn')
+const resetBtn = document.querySelector('button[type=reset]')
 //.3테이블의 추가될 부분
 const tableBody = document.querySelector('#tableBody')
 
 printList()
 
+let id = 1
+
 addBtn.addEventListener('click',function(e) {
     e.preventDefault()
+    resetBtn.click()
     users.push({
-        id: users[0] ? users[users.length - 1].id : users[users.length].id + 1,
-        name : putName.value ,
+        id: users[0] ? id : id + 1,
+        name: putName.value ,
         part: putPart.value ,
         phone: putPhone.value
     })
-    putUser.value=""
-    putName.value=""
-    putPart.value=""
-    putPhone.value=""
     printList();
 });
 
