@@ -2,8 +2,9 @@ const users = [
     {
         id:1,
         name:'a',
-        part:'b',
-        phone:'c'
+        username:'b',
+        email:'c',
+        phone:"010-01010-1111"
     }
 ]
 
@@ -19,9 +20,10 @@ const tableBody = document.querySelector('#tableBody')
 
 printList()
 
-addBtn.addEventListener('click',function() {
+addBtn.addEventListener('click',function(e) {
+    e.preventDefault()
     users.push({
-        id: users[0] ? users[users.length - 1].id : 1,
+        id: users[0] ? users[users.length - 1].id : users[users.length].id + 1,
         name : putName.value ,
         part: putPart.value ,
         phone: putPhone.value
